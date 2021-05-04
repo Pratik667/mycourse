@@ -5,16 +5,157 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>More about Javascripts</title>
+    <style>
+        #changestyle{
+            padding:5px;
+            background-color:tomato;
+            color: #fff;
+            width:fit-content;
+        }
+        #circle1,#circle2,#circle3{
+            width: 50px;
+            height: 50px;
+            border-radius : 50%;
+            display: inline-block;
+            /* float:left; it can also work here */
+            cursor:pointer;
+        }
+        #circle1{
+            background-color: teal;
+        }
+        #circle2{
+            background-color: slateblue;
+        }
+        #circle3{
+            background-color: sienna;
+        }
+    </style>
 </head>
 <body>
-    <h1>Javascript</h1>
+    <h1 id="title">Javascript</h1>
     <ol start="1">
         <li>
             Button clicks - <button onclick="alert('You clicked me!');">Click me</button> - Example of inline js onclick
         </li>
+        <li>
+            Accessing Element - Update the title "Javascript" to "Javascript Tutorial"- getElementById(Getting the element by ID), innerhtml to change the inside html code of that id
+        </li>
+        <li>
+            Responding to click -  <button id="mybutton">Click me</button> - getElementById(Get the id), onclick for click, followed by function for code
+        </li>
+        <li>
+            Changing content of website - Appending Text <p id="changetext">Change my text</p> <button id="changetextbutton">Append Text - Hello World</button>
+        </li>
+        <li>
+            Changing styles with JS  - document.getElementById("changestyle").style.backgroundColor = "green"; <p id="changestyle">It is a demo text styled perfectly.</p> <button id="changestylebutton">Change The style</button> 
+        </li>
+        <li>
+            Disappear the circles - <br/><br/><div id="circle1"></div> <div id="circle2"></div> <div id="circle3"></div>
+        </li>
+        <li>
+            Variables - variables are used to hold a value.  <input type="text" placeholder="Change variable" id="changevariable"> <button id="changevarbutton">Change variable</button> &nbsp;The variable value is <span id="myvariable"></span>
+        </li>
+        <li>
+            Array - Array is set of values of similar type. it is type of object. <em>open Console</em>
+        </li>
+        <li>
+            if statement - if(arguments){}
+        </li>
+        <li>
+            magic word game - <input type="text" id="magicwordtext" placeholder="Guess a number"><button id="guessnumberbtn">Click me!</button> <span id="magicnumber"></span>
+        </li>
+        <li>
+            Loops - For loops <span id="forloop"></span>
+        </li>
+        <li>
+            Loops - while loops <span id="whileloop"></span>
+        </li>
+        <li>
+            Function - check the console
+        </li>
     </ol>
-    <script>
+    <script type="text/javascript">
+            console.log("Javascript internally enabled!")
+            //2. Change the title
+            document.getElementById("title").innerHTML = "Javascript Tutorial - Hello World!";
+            //3. Respond to click
+            document.getElementById("mybutton").onclick = function(){
+                alert("You clicked My Button!");
+                document.getElementById("title").innerHTML = "Javascript";
+            }
+            //4. append text
+            document.getElementById("changetextbutton").onclick = function(){
+                document.getElementById("changetext").innerHTML = document.getElementById("title").innerHTML + "Tutorial i am!"
+            }
+            //5. Change style of button
+            document.getElementById("changestylebutton").onclick = function() {
+                document.getElementById("changestyle").style.backgroundColor = "green";
+                document.getElementById("changestyle").style.fontSize = "48px";
+            }
+            //6. Onclick to disappear circle
+            document.getElementById("circle1").onclick = function(){
+                document.getElementById("circle1").style.display = "none";
+            }
+            document.getElementById("circle2").onclick = function(){
+                document.getElementById("circle2").style.display = "none";
+            }
+            document.getElementById("circle3").onclick = function(){
+                document.getElementById("circle3").style.display = "none";
+            }
+            //7. variable 
+            document.getElementById("changevarbutton").onclick = function(){
+                var x = document.getElementById("changevariable").value;
+            document.getElementById("myvariable").innerHTML =  x;
+            }
+            //8. Array
+            var myarray = new Array();
+            myarray[0] = "Pizza";
+            myarray[1] = "Chocolate";
+            console.log(myarray);
+            console.log(myarray.length);
+            //8.2 second way of defining
+            var mycars =  ["BMW","Audi"];
+            mycars.push("Maserati");
+            mycars.splice(1,2,"suzuki"); //2nos starting at row 1
+            mycars.splice(1,0,"Volkswagen");//added
+            console.log(mycars);
+            //9 if statement
+            var x =23;
+            if(x > 1){
+                console.log("Number is greater than 1");
+            }
+            //10 Random muagic word game
+            document.getElementById("guessnumberbtn").onclick = function(){
+                var x = Math.floor((Math.random() * 10) + 1);
+                var textinput = document.getElementById("magicwordtext").value;
+                if(textinput == x){
+                    document.getElementById("magicnumber").innerHTML = "The same number" + " it is " + x;
+                }else{
+                    document.getElementById("magicnumber").innerHTML = "Not the same number" + " it was " + x;
+                }
+            }
+            //10.1 For loop
+            var myutility = ['pen','paper','pencil','eraser'];
+            var i = "";
+            for(i=0;i<myutility.length;i++){
+                document.getElementById("forloop").innerHTML = document.getElementById("forloop").innerHTML + myutility[i] + ",";
+            }
+            //10.2 while loop
+            var j = 0;
+            while(j<myutility.length){
+                document.getElementById("whileloop").innerHTML = document.getElementById("whileloop").innerHTML + myutility[j] + ",";
+                j++;
+            }
+            //function
+            
+            function addition(a,b){
+                return(a+b);
+            }
+            var x = 4;
+            var y = 5;
 
+            console.log(addition(x,y));
+           
     </script>
 </body>
 </html>
