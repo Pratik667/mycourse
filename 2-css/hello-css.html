@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello-CSS</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">    <style>
+        *{
+           
+            font-weight:500;
+            }
+        .first-float{
+            background-color:blueviolet;
+            color: #fff;
+            padding: 10px;
+            float:left;
+        }
+        .second-float{
+            background-color:aqua;
+            padding: 10px;
+            float:left;
+        }
+        .first-float-limit{
+            background-color:blueviolet;
+            color: #fff;
+            padding: 10px;
+            float:left;
+        }
+        .second-float-limit{
+            background-color:aqua;
+            padding: 10px;
+            float:right;
+        }
+        .float-nextline{
+            background-color:burlywood;
+            padding: 10px;
+        }
+        .float-clear{
+            clear: both;
+            background-color:burlywood;
+            padding: 10px;
+        }
+        .relative-box{
+            background-color:crimson;
+            padding:10px;
+            color: #fff;
+            position:relative;
+            left:-100px;
+            top:10px;  
+        }
+        .zindex-box1{
+            background-color:darkblue;
+            padding:10px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            opacity: 0.5;
+        }
+        .font-changes{
+            background-color:sienna;
+            color: white;
+            margin: 10px;
+            padding: 0 10px;
+            font-family:fantasy;
+            font-size: 48px;            
+
+        }
+        .hoverme:hover{
+            cursor:pointer;
+            color: tomato;
+        }
+        .text-center,.text-right,.text-justify{
+            height: auto;
+            width:400px;   
+            background-color: teal;
+            padding: 10px;
+            border:1px dashed #fff; 
+            color: #fff;        
+        }
+        .text-center{text-align:center}
+        .text-right{text-align:right}
+        .text-justify{
+            text-align: justify;
+        }
+        .stylinga{
+            text-decoration:none;
+        }
+        .stylinga:hover{
+            text-decoration:underline;
+        }
+        .stylinga:visited{
+            color:grey;
+        }
+    </style>
+</head>
+<body>
+<h1>css- Cascading Style Sheets</h1>
+<ol start="1">
+<li>class - denoted by .class, u can use multiple class,</li>
+<li>id - denoted by #id, u can use multiple id too, the difference between <em>id</em> and <em>class</em> is <strong>id</strong> is used once per page</li>
+<li>div element - div is used for division of sections</li>
+<li>color-code - html color code having various range of colors- gradient,solid (RGB, hex)</li>
+<li>Float - Float will float your content to either side on left or right, there is no center or any other except hese two. (Eg. Float:left;)
+   example:<br/> <div class="first-float">Both the div are float left</div><div class="second-float">this will enable both of them to position one after another.</div>
+    <h5>limitations:</h5> <div class="first-float-limit">Both the div are float left</div><div class="second-float-limit">this will enable both of them to position one after another.</div><div class="float-nextline">This will come between them both. but i want it below next line</div>
+    <h5>Solved:</h5> <div class="first-float-limit">Both the div are float left</div><div class="second-float-limit">this will enable both of them to position one after another.</div><div class="float-clear">I fixed it using <em>clear:both</em></div>
+
+</li>
+<li>Positioning - 
+    1) Relative & Z-index - This type of positioning is probably the most confusing and misused. What it really means is “relative to itself”. If you set position: relative; on an element but no other positioning attributes (top, left, bottom or right), it will have no effect on it’s positioning at all, it will be exactly as it would be if you left it as position: static; But if you do give it some other positioning attribute, say, top: 10px;, it will shift its position 10 pixels down from where it would normally be. I’m sure you can imagine, the ability to shift an element around based on its regular position is pretty useful. I find myself using this to line up form elements many times that have a tendency to not want to line up how I want them to. There are two other things that happen when you set position: relative; on an element that you should be aware of. One is that it introduces the ability to use z-index on that element, which doesn’t work with statically positioned elements. Even if you don’t set a z-index value, this element will now appear on top of any other statically positioned element. You can’t fight it by setting a higher z-index value on a statically positioned element.
+    <div class="relative-box">This div will go inside the viewport on left. <em>Position:relative; left:-100px;</em></div>
+    <br/>
+    <div class="relative-box">This div will go inside the viewport on left. <em>Position:relative; left:-100px;</em></div><div class="zindex-box1">This was going in the background so i brought it up using z-index<em>Position:relative; z-index:2; also has opacity:0.5</em></div>
+    2) Absolute - This is a very powerful type of positioning that allows you to literally place any page element exactly where you want it. You use the positioning attributes top, left, bottom, and right to set the location. Remember that these values will be relative to the next parent element with relative (or absolute) positioning. If there is no such parent, it will default all the way back up to the html element itself meaning it will be placed relative to the page itself.
+</li>
+<li>
+    Margin - it sets a margin. Syntax: <em>margin: top right bottom left;</em> or <em>margin: vertical horizontal;</em>  or <em>margin-left/right/top/bottom: px;</em>
+        <div style="margin:10px; background-color:darkgoldenrod; height: 20px; width:600px; border:1px solid black;">margin set out side of parent element/container like a div</div>
+</li>
+<li>
+    Padding - it sets a padding. Syntax: <em>padding: top right bottom left;</em> or <em>padding: vertical horizontal;</em>  or <em>padding-left/right/top/bottom: px;</em>
+        <div style="padding:10px; background-color:darkgoldenrod; height: 20px; width:600px;border:1px solid black;">padding set in side of parent element/container like a div</div>
+</li>
+<li>
+    Border - giving borders to a container. syntax: <em>border: size type color;</em> or<em>Border-width: 2px 10px 5px 10px;</em> and <em>border-radius: 20px; cuts its edges</em> and <em>border-left/right/bottom/top: size;border-style: riged/dashed/dotted/solid,border-style: top right bottom left.</em>. Size- px,em,rem,%. type- dashed, dotted,solid. color.
+</li>
+<li>Fonts - Font families used in documents. syntax: <em>font-family: sans-serif;</em> <br/><span class="font-changes">This is in a new Font</span></li>
+<li>Styling text- <span style="font-weight:bold;">Font weight is 600 i.e bold</span> and <span style="font-style:italic;">Font style is italics</span> and <span style="text-decoration:underline;">text decoration is underlined</span> and <span style="cursor:pointer">Hover me and change Cursor</span></li>
+<li>Hover effect - <span class="hoverme">Hover on me!</span></li>
+<li>Text alignment - Align the text center, right, left, justify <div class="text-center">This text is at center</div><div class="text-right">This text is at right</div><div class="text-justify">This text is using justified way of alignment for more text in data.</div></li>
+<li>Styling links - pseudo class link (visited, active,hover,link) <a href="https://www.google.com" class="stylinga">Google link added hover underlined and visited grey color</a></li>
+</ol>
+</body>
+</html>
+
+
